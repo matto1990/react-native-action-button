@@ -65,18 +65,11 @@ export default class ActionButton extends Component {
   }
 
   getActionButtonStyles() {
-    return [styles.actionBarItem, this.getButtonSize()];
+    return [styles.actionBarItem];
   }
 
   getOrientation() {
     return { alignItems: alignItemsMap[this.state.position] };
-  }
-
-  getButtonSize() {
-    return {
-      width: this.state.size,
-      height: this.state.size,
-    }
   }
 
   getOffsetXY() {
@@ -185,7 +178,7 @@ export default class ActionButton extends Component {
               <ActionButtonItem
                 key={index}
                 position={this.state.position}
-                spacing={this.props.spacing}
+                spacing={this.props.spacing - 5}
                 anim={this.state.anim}
                 size={this.state.size}
                 btnColor={this.state.btnOutRange}
@@ -297,6 +290,11 @@ const styles = StyleSheet.create({
     },
     shadowColor: '#444',
     shadowRadius: 1,
+    elevation: 3,
+    marginTop: 6,
+    marginBottom: 5,
+    marginLeft: 2,
+    marginRight: 2,
   },
   btnText: {
     marginTop: -4,

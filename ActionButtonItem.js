@@ -33,7 +33,7 @@ export default class ActionButtonItem extends Component {
       <Animated.View
         style={[styles.actionButtonWrap, {
           alignItems: this.state.alignItems,
-          marginBottom: this.props.spacing,
+          marginBottom: this.props.spacing - 6, // We need to take into account the top and bottom margin we're using to stop the shadow clipping
           opacity: this.props.anim,
           transform: [{
             translateY: this.props.anim.interpolate({
@@ -101,7 +101,9 @@ export default class ActionButtonItem extends Component {
 
 const styles = StyleSheet.create({
   actionButtonWrap: {
-    width
+    width,
+    paddingTop: 5,
+    paddingBottom: 5,
   },
   actionButton: {
     justifyContent: 'center',
@@ -114,6 +116,12 @@ const styles = StyleSheet.create({
     },
     shadowColor: '#444',
     shadowRadius: 1,
+    marginBottom: 5,
+    marginTop: 1,
+    marginLeft: 2,
+    marginRight: 2,
+    elevation: 3,
+    position: 'relative',
   },
   actionTextView: {
     position: 'absolute',
